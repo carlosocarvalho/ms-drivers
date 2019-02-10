@@ -1,0 +1,19 @@
+{
+    "name": "modalnetworks/metasearch-drivers",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Carlos O Carvalho",
+            "email": "cjc@modalnetworks.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "illuminate/support": "^5.7"
+    },
+    "autoload": {
+        "psr-4":{
+            "Modalnetworks\\MetaSearch\\":"src/"
+        }
+    }
+}

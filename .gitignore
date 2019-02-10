@@ -1,0 +1,4 @@
+/vendor/
+.idea/
+.vscode-upload.json
+index.php
