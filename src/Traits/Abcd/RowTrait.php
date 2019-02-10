@@ -20,9 +20,11 @@ trait RowTrait
         $data = [];
         array_map( function($item) use (& $data){
             $keyValue = $this->makeKeyValue($item);
-            $data[$keyValue->key] = $keyValue->value;
+
+            if( $keyValue->key !== null)
+               $data[$keyValue->key] = $keyValue->value;
         },$row);
-        return $data;
+        return $data; //array_replace($data, $this->getSettingMapping()->getExtras());
 
 
     }

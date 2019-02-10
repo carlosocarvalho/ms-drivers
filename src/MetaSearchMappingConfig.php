@@ -15,10 +15,23 @@ class MetaSearchMappingConfig implements MetaSearchMappingConfigContract
 {
     protected $optionsFrom = [];
     protected $optionsTo = [];
+
+    protected $extrasMergedRow = [
+        'driver' => 'abcd'
+    ];
     public function __construct(array $mappingOptions )
     {
          $this->optionsFrom = array_keys($mappingOptions);
          $this->optionsTo = array_values($mappingOptions);
+    }
+
+    public function setExtrasMerge($data){
+        $this->extrasMergedRow = array_merge($this->extrasMergedRow, $data);
+        return $this;
+    }
+
+    public function getExtras(){
+        return $this->extrasMergedRow;
     }
 
     /**

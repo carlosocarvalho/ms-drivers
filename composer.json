@@ -10,11 +10,15 @@
     "require": {
         "php": ">=7",
         "guzzlehttp/guzzle": "^6.3",
-        "illuminate/support": "^5.7"
+        "illuminate/support": "^5.7",
+        "symfony/var-dumper": "^4.2"
     },
     "autoload": {
         "psr-4":{
             "Modalnetworks\\MetaSearch\\":"src/"
-        }
+        },
+        "files": [
+            "src/Helpers/abcd_helper.php"
+        ]
     }
 }

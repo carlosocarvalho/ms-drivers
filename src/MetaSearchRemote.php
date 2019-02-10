@@ -32,6 +32,11 @@ class MetaSearchRemote
 
     }
 
+    /**
+     * @param array $data
+     * @param \Closure $callback
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function push(array $data, \Closure $callback)
     {
         try {
@@ -41,11 +46,14 @@ class MetaSearchRemote
             $callback($response->getBody());
         }catch (RequestException $e){
             if( $e->hasResponse() )
-                 echo Psr7\str($e->getResponse());
+                 $callback(Psr7\str($e->getResponse()));
         }
 
     }
 
+    /**
+     *
+     */
     public function pushBulk()
     {
 
