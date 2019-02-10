@@ -1,6 +1,9 @@
 {
     "name": "modalnetworks/metasearch-drivers",
     "license": "MIT",
+    "keywords": [
+        "modalnetworks", "acbd library"
+    ],
     "authors": [
         {
             "name": "Carlos O Carvalho",
@@ -20,5 +23,14 @@
         "files": [
             "src/Helpers/abcd_helper.php"
         ]
+    },
+    "minimum-stability": "dev",
+    "extra": {
+
+      "laravel": {
+          "providers": [
+              "Modalnetworks\\MetaSearch\\Providers\\LaravelServiceProvider"
+          ]
+      }
     }
 }
