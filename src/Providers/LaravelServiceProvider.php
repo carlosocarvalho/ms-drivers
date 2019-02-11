@@ -22,10 +22,10 @@ class LaravelServiceProvider extends ServiceProvider
 
 
     public function boot(){
-         $this->mergeConfigFrom(dirname(__FILE__).'/config/metasearch', 'metasearch');
+         $this->mergeConfigFrom(__DIR__ .'../config/metasearch', 'metasearch');
 
          $this->publishes([
-             dirname(__FILE__ .'/config/') => config_path()
+             __DIR__ .'/config/' => config_path()
          ], 'metasearch.config');
     }
 
