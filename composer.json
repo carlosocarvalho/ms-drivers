@@ -14,6 +14,10 @@
         "php": ">=7",
         "guzzlehttp/guzzle": "^6.3",
         "illuminate/support": "^5.7",
+        "illuminate/database": "^5.7",
+        "illuminate/events": "^5.7"
+    },
+    "require-dev": {
         "symfony/var-dumper": "^4.2"
     },
     "autoload": {
@@ -21,7 +25,8 @@
             "Modalnetworks\\MetaSearch\\":"src/"
         },
         "files": [
-            "src/Helpers/abcd_helper.php"
+            "src/Helpers/abcd_helper.php",
+            "src/Helpers/noticia_fiscal_helper.php"
         ]
     },
     "minimum-stability": "dev",

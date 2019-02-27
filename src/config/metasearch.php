@@ -36,11 +36,35 @@ $mapping = [
 return [
     'default_driver' => Modalnetworks\MetaSearch\Drivers\AbcdDriver::class,
     'default_driver_load' => 'abcd',
+
     'drivers' => [
-        Modalnetworks\MetaSearch\Drivers\AbcdDriver::class
+        Modalnetworks\MetaSearch\Drivers\AbcdDriver::class,
+        Modalnetworks\MetaSearch\Drivers\NoticiaFiscalDriver::class
     ],
     'mappings' => [
-        'abcd' => $mapping
+        'abcd' => $mapping,
+        'noticia_fiscal' => require_once (__DIR__.'/noticia_fiscal_map.php')
     ],
+
+    'callbacks_drivers' => [
+
+        'NoticiaFiscal'=> [
+            'add_extras_data'
+        ]
+    ],
+
+    'database' => [
+
+        'mysql' => [
+            'driver' => 'mysql',
+            'host' => '191.252.196.181',
+            'database' => 'wpnf',
+            'username' => 'nfiscais',
+            'password' => 'nfiscais@2019',
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => 'wp_',
+        ]
+    ]
 
 ];

@@ -13,4 +13,6 @@ interface MetaSearchMappingConfigContract
 {
     public function toMapping();
     public function fromMapping();
+
+    public function getConfig();
 }

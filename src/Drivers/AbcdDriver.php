@@ -45,7 +45,7 @@ class AbcdDriver implements MetaSearchDriverContract
      * @param string $str
      * @return $this
      */
-    public function data( string $str = null){
+    public function data( $str = null){
         $this->data =  $str != null ? $str : $this->data;
         return $this;
     }
@@ -66,5 +66,8 @@ class AbcdDriver implements MetaSearchDriverContract
     }
 
 
-
+    public function boostrap($settings = null)
+    {
+        return $this;
+    }
 }

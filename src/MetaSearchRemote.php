@@ -39,6 +39,7 @@ class MetaSearchRemote
      */
     public function push(array $data, \Closure $callback)
     {
+
         try {
             $response = $this->getClientGuzzle()->request('POST', $this->url, [
                 'json' => $data

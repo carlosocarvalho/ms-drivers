@@ -13,4 +13,6 @@ interface MetaSearchDriverContract
 {
 
     public function body();
+    public function boostrap($settings = null);
+    public function data($data = null);
 }

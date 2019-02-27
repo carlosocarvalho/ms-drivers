@@ -19,12 +19,23 @@ class MetaSearchMappingConfig implements MetaSearchMappingConfigContract
     protected $extrasMergedRow = [
         'driver' => 'abcd'
     ];
+
+    protected $options = ['callbacks_drivers' => []];
+
     public function __construct(array $mappingOptions )
     {
          $this->optionsFrom = array_keys($mappingOptions);
          $this->optionsTo = array_values($mappingOptions);
     }
 
+    public function addOptionsConfiguration($options){
+        $this->options = array_replace($this->options, $options);
+        return $this;
+    }
+
+    public function getOptions(){
+        return $this->options;
+    }
     public function setExtrasMerge($data){
         $this->extrasMergedRow = array_merge($this->extrasMergedRow, $data);
         return $this;
@@ -46,5 +57,10 @@ class MetaSearchMappingConfig implements MetaSearchMappingConfigContract
      */
     public function toMapping(){
         return $this->optionsTo;
+    }
+
+    public function getConfig()
+    {
+        // TODO: Implement getConfig() method.
     }
 }
