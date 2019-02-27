@@ -25,7 +25,7 @@ class NoticiaFiscalDriver implements MetaSearchDriverContract
     use KeyValueTrait;
     use ParseRow;
 
-    protected $driverName = 'NoticiaFiscal';
+    protected $driverName = 'noticia_fiscal';
     /**
      * @var MetaSearchMappingConfigContract
      */

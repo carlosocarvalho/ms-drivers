@@ -29,7 +29,9 @@ trait ParseRow
             return $data;
         }
         $this->callbackDriver($data, $row);
-        $data = array_replace($data, $this->getSettingMapping()->getExtras());
+        $settings = $this->getSettingMapping();
+        $settings->setExtrasMerge(['driver' => $this->driverName]);
+        $data = array_replace($data, $settings->getExtras());
         ksort($data, SORT_NATURAL);
         return $data;
     }

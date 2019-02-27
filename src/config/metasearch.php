@@ -47,8 +47,7 @@ return [
     ],
 
     'callbacks_drivers' => [
-
-        'NoticiaFiscal'=> [
+        'noticia_fiscal'=> [
             'add_extras_data'
         ]
     ],
@@ -56,14 +55,14 @@ return [
     'database' => [
 
         'mysql' => [
-            'driver' => 'mysql',
-            'host' => '191.252.196.181',
-            'database' => 'wpnf',
-            'username' => 'nfiscais',
-            'password' => 'nfiscais@2019',
-            'charset' => 'utf8',
+            'driver'    => 'mysql',
+            'host'      => 'localhost',
+            'database'  => 'database',
+            'username'  => 'root',
+            'password'  => 'password',
+            'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix' => 'wp_',
+            'prefix'    => '',
         ]
     ]
 
