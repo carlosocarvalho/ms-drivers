@@ -3,7 +3,6 @@
 
 $mapping = [
     '777' => [
-
         'value'=>'published_at',
         'callbacks' => [
             'abcd_format_date'
@@ -35,12 +34,13 @@ $mapping = [
 ];
 
 return [
+    'default_driver' => Modalnetworks\MetaSearch\Drivers\AbcdDriver::class,
+    'default_driver_load' => 'abcd',
+    'drivers' => [
+        Modalnetworks\MetaSearch\Drivers\AbcdDriver::class
+    ],
     'mappings' => [
         'abcd' => $mapping
     ],
 
-
-    'drivers' => [
-        Modalnetworks\MetaSearch\Drivers\AbcdDriver::class
-    ]
 ];

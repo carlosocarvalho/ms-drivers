@@ -13,27 +13,42 @@ class MetaSearchService
 
     protected $remote;
 
-    public function __construct(MetaSearchDriverContract $driver )
+    public function __construct()
     {
-        $this->driver = $driver;
         $this->remote = new MetaSearchRemote();
     }
 
-    public function pushRemote(\Closure $callback){
-       return $this->remote->push( $this->getDriver()->body(), $callback);
+    public function driver(MetaSearchDriverContract $driver)
+    {
+        $this->driver = $driver;
+        return $this;
     }
 
-    public function push(){
+    public function pushRemote($data, \Closure $callback)
+    {
+        return $this->remote->push($this->getDriver()->data($data)->body(), $callback);
+    }
+
+    public function push()
+    {
 
     }
 
-
-    protected function getDriver(){
-        return $this->driver;
+    /**
+     * @return MetaSearchDriverContract
+     * @throws \Exception
+     */
+    protected function getDriver()
+    {
+        if ($this->driver){
+            return $this->driver;
+        }
+        throw new \Exception('Driver undefined');
     }
 
 
-    protected function registeredDrivers(){
+    protected function registeredDrivers()
+    {
 
 
     }

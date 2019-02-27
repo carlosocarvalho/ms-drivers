@@ -17,53 +17,53 @@ use Modalnetworks\MetaSearch\Traits\Abcd\RowTrait;
 
 class AbcdDriver implements MetaSearchDriverContract
 {
-     use KeyValueTrait, RowTrait, MappingTrait;
+    use KeyValueTrait, RowTrait, MappingTrait;
 
-     protected $data;
+    protected $data;
 
-     protected $settings;
+    protected $settings;
 
-     protected $dataSeparator = '||';
+    protected $dataSeparator = '||';
 
-     protected $keySeparator =  '|';
+    protected $keySeparator =  '|';
 
-     protected $driverName = 'Abcd';
+    protected $driverName = 'Abcd';
 
-     /**
+    /**
      * @var bool
      */
-     protected $strict = false;
+    protected $strict = false;
 
-     public function __construct(MetaSearchMappingConfigContract $settings, $strict = false)
-     {
-         $this->settings = $settings;
-         $this->strict = $strict;
+    public function __construct(MetaSearchMappingConfigContract $settings, $strict = false)
+    {
+        $this->settings = $settings;
+        $this->strict = $strict;
 
-     }
+    }
 
     /**
      * @param string $str
      * @return $this
      */
-     public function data( string $str){
-          $this->data = $str;
-          return $this;
-     }
+    public function data( string $str = null){
+        $this->data =  $str != null ? $str : $this->data;
+        return $this;
+    }
 
     /**
      * @return array
      */
-     public function body()
-     {
+    public function body()
+    {
         return  array_replace($this->makeRow(), $this->getSettingMapping()->getExtras());
-     }
+    }
 
     /**
      * @return MetaSearchMappingConfigContract
      */
-     protected function getSettingMapping(){
-         return $this->settings;
-     }
+    protected function getSettingMapping(){
+        return $this->settings;
+    }
 
 
 
