@@ -57,11 +57,11 @@ class NoticiaFiscalDriver implements MetaSearchDriverContract
     }
 
 
-    public function boostrap($settings = null)
+    public function boostrap($settings = [])
     {
 
         $capsule = new Capsule;
-        $capsule->addConnection($settings);
+        $capsule->addConnection($settings, 'noticia_fiscal');
         $capsule->setEventDispatcher(new Dispatcher(new Container));
         $capsule->setAsGlobal();
         $capsule->bootEloquent();

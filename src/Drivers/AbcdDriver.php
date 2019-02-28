@@ -25,7 +25,7 @@ class AbcdDriver implements MetaSearchDriverContract
 
     protected $dataSeparator = '||';
 
-    protected $keySeparator =  '|';
+    protected $keySeparator = '|';
 
     protected $driverName = 'Abcd';
 
@@ -45,8 +45,9 @@ class AbcdDriver implements MetaSearchDriverContract
      * @param string $str
      * @return $this
      */
-    public function data( $str = null){
-        $this->data =  $str != null ? $str : $this->data;
+    public function data($str = null)
+    {
+        $this->data = $str != null ? $str : $this->data;
         return $this;
     }
 
@@ -55,18 +56,19 @@ class AbcdDriver implements MetaSearchDriverContract
      */
     public function body()
     {
-        return  array_replace($this->makeRow(), $this->getSettingMapping()->getExtras());
+        return array_replace($this->makeRow(), $this->getSettingMapping()->getExtras());
     }
 
     /**
      * @return MetaSearchMappingConfigContract
      */
-    protected function getSettingMapping(){
+    protected function getSettingMapping()
+    {
         return $this->settings;
     }
 
 
-    public function boostrap($settings = null)
+    public function boostrap($settings = [])
     {
         return $this;
     }
