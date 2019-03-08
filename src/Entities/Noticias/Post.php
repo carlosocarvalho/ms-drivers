@@ -21,6 +21,10 @@ class Post extends Model
         return $q->orderBy('post_date', 'desc');
     }
 
+    /**
+     * @param $query
+     * @return mixed
+     */
     public function scopeOnlyPost($query)
     {
         return $query
