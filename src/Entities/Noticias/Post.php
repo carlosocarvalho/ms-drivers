@@ -13,7 +13,7 @@ class Post extends Model
 
     public function scopeOfDay($q)
     {
-        return $q->whereBetween('post_modified', [date('Y-m-27 00:00:00'), date('Y-m-d 23:59:59')]);
+        return $q->whereBetween('post_modified', [date('Y-m-d 00:00:00'), date('Y-m-d 23:59:59')]);
     }
 
     public function scopeOrderDay($q)
