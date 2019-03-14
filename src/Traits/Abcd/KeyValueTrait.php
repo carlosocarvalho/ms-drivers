@@ -36,6 +36,11 @@ trait KeyValueTrait
         return $this->hasCallbacks($valuesOptions[$keyIndex], $value);
     }
 
+    protected function getOldKeyValue(string $data)
+    {
+        return  list($key, $value) = explode($this->keySeparator, trim($data));
+    }
+
     /**
      * @param $key
      * @param $value

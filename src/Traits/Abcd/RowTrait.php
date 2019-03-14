@@ -17,16 +17,22 @@ trait RowTrait
     {
 
         $row = explode($this->dataSeparator, trim($this->data, $this->dataSeparator));
+        $old = [];
         $data = [];
-        array_map( function($item) use (& $data){
+        array_map(function ($item) use (&$data, &$old) {
             $keyValue = $this->makeKeyValue($item);
+            $origin = $this->getOldKeyValue($item);
+            $old[(string) $origin[0]] = $origin[1];
 
-            if( $keyValue->key !== null)
-               $data[$keyValue->key] = $keyValue->value;
-        },$row);
+            if ($keyValue->key !== null) {
+                $data[$keyValue->key] = $keyValue->value;
+            }
+        }, $row);
+        $this->callbackDriver($data, $old);
+        $settings = $this->getSettingMapping();
+        $settings->setExtrasMerge(['driver' => $this->driverName]);
+        $data = array_replace($data, $settings->getExtras());
+        ksort($data, SORT_NATURAL);
         return $data; //array_replace($data, $this->getSettingMapping()->getExtras());
-
-
     }
-
 }

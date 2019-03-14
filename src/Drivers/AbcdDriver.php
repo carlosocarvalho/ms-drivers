@@ -1,13 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: carlos
- * Date: 09/02/19
- * Time: 12:27
- */
-
 namespace Modalnetworks\MetaSearch\Drivers;
-
 
 use Modalnetworks\MetaSearch\Contracts\MetaSearchDriverContract;
 use Modalnetworks\MetaSearch\Contracts\MetaSearchMappingConfigContract;
@@ -27,7 +19,7 @@ class AbcdDriver implements MetaSearchDriverContract
 
     protected $keySeparator = '|';
 
-    protected $driverName = 'Abcd';
+    protected $driverName = 'abcd';
 
     /**
      * @var bool
@@ -56,7 +48,7 @@ class AbcdDriver implements MetaSearchDriverContract
      */
     public function body()
     {
-        return array_replace($this->makeRow(), $this->getSettingMapping()->getExtras());
+        return $this->makeRow();
     }
 
     /**
@@ -71,5 +63,16 @@ class AbcdDriver implements MetaSearchDriverContract
     public function boostrap($settings = [])
     {
         return $this;
+    }
+
+    private function callbackDriver(&$row, $old)
+    {
+
+        $callbacks = $this->settings->getOptions()['callbacks_drivers'];
+        if (!isset($callbacks[$this->driverName]) or !$callbacks[$this->driverName]) return;
+
+        foreach ($callbacks[$this->driverName] as $callback) {
+            $row = call_user_func($callback, $row, $old);
+        }
     }
 }
