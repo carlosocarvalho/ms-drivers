@@ -22,7 +22,7 @@ trait RowTrait
         array_map(function ($item) use (&$data, &$old) {
             $keyValue = $this->makeKeyValue($item);
             $origin = $this->getOldKeyValue($item);
-            $old[(string) $origin[0]] = $origin[1];
+            $old[(string) $origin[0]] = isset($origin[1]) ? $origin[1] : null;
 
             if ($keyValue->key !== null) {
                 $data[$keyValue->key] = $keyValue->value;
