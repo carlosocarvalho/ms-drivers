@@ -38,7 +38,7 @@ trait KeyValueTrait
 
     protected function getOldKeyValue(string $data)
     {
-        return  list($key, $value) = explode($this->keySeparator, trim($data));
+        return  explode($this->keySeparator, trim($data));
     }
 
     /**
