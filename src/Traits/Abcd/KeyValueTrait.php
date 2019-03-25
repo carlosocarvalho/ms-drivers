@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: carlos
- * Date: 10/02/19
- * Time: 01:43
- */
 
 namespace Modalnetworks\MetaSearch\Traits\Abcd;
 
@@ -38,7 +32,7 @@ trait KeyValueTrait
 
     protected function getOldKeyValue(string $data)
     {
-        return  explode($this->keySeparator, trim($data));
+        return explode($this->keySeparator, trim($data));
     }
 
     /**
