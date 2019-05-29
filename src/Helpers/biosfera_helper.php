@@ -54,9 +54,11 @@ function addTimestamps(&$data, $old)
 {   
     $t = $old['001_id'];
     $published_at = sprintf("%s-%s-%s", 
-       substr($t, 6, 2),
-       substr($t, 4, 2),
-       substr($t, 0, 4),
+    substr($t, 0, 4), 
+    substr($t, 4, 2),
+    substr($t, 6, 2),
+       
+       
     );
     $timestamp_at = sprintf("%s %s:%s:%s",
        $published_at, 
