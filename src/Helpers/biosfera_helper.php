@@ -26,7 +26,8 @@ function call_format_helper_biosfera($data, $old)
 {
     $body = extractArguments('body', $data);
     $data['origin'] = 'cloud_biosfera';
-    $data['material_type'] = 'clipping';
+    $data['material_type'] = 'noticia_biosfera';
+    $data['material_doc'] = 'clipping';
     $data['description'] = extractArguments('505_clippText', $body);
     $data['categories'] = preg_split("#,#", extractArguments('653_index_term_uncontrolled', $body));
     $data['tags'] =  preg_split("#,#", extractArguments('650_keyword', $body));
