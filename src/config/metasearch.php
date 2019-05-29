@@ -39,16 +39,22 @@ return [
 
     'drivers' => [
         Modalnetworks\MetaSearch\Drivers\AbcdDriver::class,
+        Modalnetwors\MetaSearch\Drivers\BiosferaDriver::class ,
         Modalnetworks\MetaSearch\Drivers\NoticiaFiscalDriver::class
     ],
     'mappings' => [
         'abcd' => $mapping,
-        'noticia_fiscal' => require_once (__DIR__.'/noticia_fiscal_map.php')
+        'noticia_fiscal' => require_once (__DIR__.'/noticia_fiscal_map.php'),
+        'biosfera' => require_once (__DIR__.'/biosfera_map.php')
+   
     ],
 
     'callbacks_drivers' => [
         'noticia_fiscal'=> [
             'add_extras_data'
+        ],
+        'biosfera' => [
+            'call_format_helper_biosfera'
         ]
     ],
 
