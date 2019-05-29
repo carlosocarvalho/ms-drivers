@@ -34,7 +34,7 @@ function call_format_helper_biosfera($data, $old)
     addResume($data);
     addTumble($data, $old);
     addTimestamps($data, $old);
-    $row['client_id']= 'modal.apps';
+    $data['client_id']= 'modal.apps';
     return $data;
 }
 
