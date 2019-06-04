@@ -38,7 +38,7 @@ class TaxHand
         $client = $self->getClientGuzzle();
         $self->addParams([
             'completeArticleResponse' => 'false',
-            'limit' => 2,
+            'limit' => 30,
             'offset' => 0]);
         $response = $client->request('GET', null, [
             'query' => $self->getParams()
