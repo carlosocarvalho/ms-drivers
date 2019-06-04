@@ -40,12 +40,14 @@ return [
     'drivers' => [
         Modalnetworks\MetaSearch\Drivers\AbcdDriver::class,
         Modalnetwors\MetaSearch\Drivers\BiosferaDriver::class ,
+        Modalnetwors\MetaSearch\Drivers\TaxHandDeloitteDriver::class,
         Modalnetworks\MetaSearch\Drivers\NoticiaFiscalDriver::class
     ],
     'mappings' => [
         'abcd' => $mapping,
         'noticia_fiscal' => require_once (__DIR__.'/noticia_fiscal_map.php'),
-        'biosfera' => require_once (__DIR__.'/biosfera_map.php')
+        'biosfera' => require_once (__DIR__.'/biosfera_map.php'),
+        'taxhand' => require_once (__DIR__.'/taxhand_map.php')
    
     ],
 
@@ -55,6 +57,9 @@ return [
         ],
         'biosfera' => [
             'call_format_helper_biosfera'
+        ],
+        'taxhand' => [
+            'call_format_helper_taxhand'
         ]
     ],
 

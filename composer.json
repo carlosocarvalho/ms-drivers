@@ -27,7 +27,8 @@
         "files": [
             "src/Helpers/abcd_helper.php",
             "src/Helpers/noticia_fiscal_helper.php",
-            "src/Helpers/biosfera_helper.php"
+            "src/Helpers/biosfera_helper.php",
+            "src/Helpers/taxhand_helper.php"
         ]
     },
     "minimum-stability": "dev",
