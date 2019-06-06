@@ -36,7 +36,7 @@ function addTumbleHand(&$data, $old)
 
 function addTaxHandTimestamps(&$data, $old)
 {
-    $date = new \DateTime(strtotime($data['published_at']));
+    $date = new \DateTime(date('Y-m-d H:i:s', ($data['published_at'] / 1000)));
     $data['published_at'] = $date->format('Y-m-d');
     $data['timestamp'] = $date->format('Y-m-d H:i:s');
 }
