@@ -22,7 +22,7 @@ if (!function_exists('call_format_helper_taxhand')) {
         $data['client_id'] = 'modal.apps';
         $data['digital_type'] = 'online';
         $data['material_type'] = "taxalert";
-        $data['material_doc'] = 'clipping';
+        $data['material_doc'] = 'clippings';
         addTaxHandTimestamps($data, $old);
         return $data;
     }
